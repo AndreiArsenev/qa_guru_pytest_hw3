@@ -1,5 +1,6 @@
 import pytest
-from selene import browser, be, have
+
+from selene import browser
 
 @pytest.fixture(autouse=True)
 def browser_size():
@@ -12,6 +13,7 @@ def browser_size():
 def test_duckduck_success_selene():
     browser.element('[name="q"]').should(be.blank).type('yashaka/selene').press_enter()
     browser.element('html').should(have.text('yashaka/selene'))
+    print("Тест завершен!")
 
 def test_duckduck_not_success():
     browser.element('[name="q"]').should(be.blank).type(
