@@ -13,3 +13,10 @@ def test_not_success():
     browser.element('[name="q"]').should(be.blank).type('Енггнйцегунеiuyewiuqwye').press_enter()
     browser.element('html').should(have.text('ничего не найдено'))
     print('Тест завершен, ничего не найдено')
+
+from selene import browser, have
+
+def test_google_search():
+    browser.open('https://google.com ')
+    browser.element('[name=q]').type('selene python').press_enter()
+    browser.element('#search').should(have.text('Selene - User-oriented Web UI browser tests in Python'))
